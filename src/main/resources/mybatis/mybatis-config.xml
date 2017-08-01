@@ -11,6 +11,9 @@
 
 	<typeAliases>
 		<typeAlias alias="noticeVO" type="com.hanbit.there.api.vo.NoticeVO" />
+		<typeAlias alias="eventVO" type="com.hanbit.there.api.vo.EventVO" />
+		<typeAlias alias="pressReleaseVO" type="com.hanbit.there.api.vo.PressReleaseVO" />
+		<typeAlias alias="referenceRoomVO" type="com.hanbit.there.api.vo.ReferenceRoomVO" />
 	</typeAliases>
 
 </configuration>

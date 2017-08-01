@@ -6,7 +6,19 @@
 
 	<select id="selectNotice" resultType="NoticeVO">
 		SELECT no,title,writer,datedt,look
-			FROM tbl_notice
+			FROM tbl_event
+	</select>
+	<select id="selectEvent" resultType="EventVO">
+		SELECT no,title,writer,datedt,look
+			FROM tbl_event
+	</select>
+	<select id="selectPressRelease" resultType="PressReleaseVO">
+		SELECT no,title,writer,datedt,look
+			FROM tbl_press_release
+	</select>
+	<select id="selectReferenceRoom" resultType="ReferenceRoomVO">
+		SELECT no,title,writer,datedt,look
+			FROM tbl_reference_room
 	</select>
 
 
