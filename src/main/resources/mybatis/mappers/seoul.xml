@@ -7,18 +7,22 @@
 	<select id="selectNotice" resultType="NoticeVO">
 		SELECT no,title,writer,datedt,look
 			FROM tbl_event
+			ORDER BY no DESC
 	</select>
 	<select id="selectEvent" resultType="EventVO">
 		SELECT no,title,writer,datedt,look
 			FROM tbl_event
+			ORDER BY no DESC
 	</select>
 	<select id="selectPressRelease" resultType="PressReleaseVO">
 		SELECT no,title,writer,datedt,look
 			FROM tbl_press_release
+			ORDER BY no DESC;
 	</select>
 	<select id="selectReferenceRoom" resultType="ReferenceRoomVO">
 		SELECT no,title,writer,datedt,look
 			FROM tbl_reference_room
+			ORDER BY no DESC
 	</select>
 
 
