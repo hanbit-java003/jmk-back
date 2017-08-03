@@ -6,7 +6,7 @@
 
 	<select id="selectNotice" resultType="NoticeVO">
 		SELECT no,title,writer,datedt,look
-			FROM tbl_event
+			FROM tbl_notice
 			ORDER BY no DESC
 	</select>
 	<select id="selectEvent" resultType="EventVO">
