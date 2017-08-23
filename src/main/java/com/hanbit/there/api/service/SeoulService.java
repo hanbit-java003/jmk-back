@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.hanbit.there.api.dao.SeoulDAO;
 import com.hanbit.there.api.vo.EventVO;
+import com.hanbit.there.api.vo.ExhibtionVO;
 import com.hanbit.there.api.vo.NoticeVO;
 import com.hanbit.there.api.vo.PressReleaseVO;
 import com.hanbit.there.api.vo.ReferenceRoomVO;
@@ -32,6 +33,10 @@ public class SeoulService {
 	public List<ReferenceRoomVO> SeoulReferenceRoom(){
 
 		return seoulDAO.SelectReferenceRoom();
+	}
+	public List<ExhibtionVO> SeoulExhibtion() {
+		
+		return seoulDAO.SelectExhibition();
 	}
 
 

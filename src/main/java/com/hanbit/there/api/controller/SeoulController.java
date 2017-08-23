@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.hanbit.there.api.service.SeoulService;
 import com.hanbit.there.api.vo.EventVO;
+import com.hanbit.there.api.vo.ExhibtionVO;
 import com.hanbit.there.api.vo.NoticeVO;
 import com.hanbit.there.api.vo.PressReleaseVO;
 import com.hanbit.there.api.vo.ReferenceRoomVO;
@@ -41,6 +42,12 @@ public class SeoulController {
 	public List<ReferenceRoomVO> SeoulReferenceRoom(){
 		
 		return seoulService.SeoulReferenceRoom();
+	}
+	
+	@RequestMapping("/exhibtion")
+	public List<ExhibtionVO> SeoulExhibtion() {
+		
+		return seoulService.SeoulExhibtion();
 	}
 	
 }

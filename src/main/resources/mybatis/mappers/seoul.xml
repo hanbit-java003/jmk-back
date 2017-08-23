@@ -24,6 +24,11 @@
 			FROM tbl_reference_room
 			ORDER BY no DESC
 	</select>
-
+	
+	<select id="selectExhibtion" resultType="ExhibtionVO">
+		SELECT *
+			FROM tbl_exhibtion
+	</select>
+	
 
 </mapper>

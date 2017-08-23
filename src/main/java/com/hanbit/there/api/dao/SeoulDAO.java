@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.hanbit.there.api.vo.EventVO;
+import com.hanbit.there.api.vo.ExhibtionVO;
 import com.hanbit.there.api.vo.NoticeVO;
 import com.hanbit.there.api.vo.PressReleaseVO;
 import com.hanbit.there.api.vo.ReferenceRoomVO;
@@ -31,6 +32,10 @@ public class SeoulDAO {
 	
 	public List<ReferenceRoomVO> SelectReferenceRoom(){
 		return sqlSession.selectList("seoul.selectReferenceRoom");
+	}
+	
+	public List<ExhibtionVO> SelectExhibition(){
+		return sqlSession.selectList("seoul.selectExhibtion");
 	}
 	
 }
