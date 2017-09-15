@@ -15,6 +15,8 @@
 		<typeAlias alias="pressReleaseVO" type="com.hanbit.there.api.vo.PressReleaseVO" />
 		<typeAlias alias="referenceRoomVO" type="com.hanbit.there.api.vo.ReferenceRoomVO" />
 		<typeAlias alias="exhibtionVO" type="com.hanbit.there.api.vo.ExhibtionVO" />
+		
+		<typeAlias alias="managerVO" type="com.hanbit.there.api.vo.ManagerVO" />
 	</typeAliases>
 
 </configuration>

@@ -17,7 +17,7 @@
 	<select id="selectPressRelease" resultType="PressReleaseVO">
 		SELECT no,title,writer,datedt,look
 			FROM tbl_press_release
-			ORDER BY no DESC;
+			ORDER BY no DESC
 	</select>
 	<select id="selectReferenceRoom" resultType="ReferenceRoomVO">
 		SELECT no,title,writer,datedt,look

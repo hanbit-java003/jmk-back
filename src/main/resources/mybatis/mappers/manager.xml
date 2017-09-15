@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="manager">
+
+	<select id="countManager" parameterType="string" resultType="int">
+		SELECT COUNT(uid)
+			FROM tbl_manager
+			WHERE email = #{email}
+	</select>
+	
+	<insert id="insertManager" parameterType="managerVO">
+		INSERT INTO tbl_manager
+			(uid, email, password, create_dt, created_by)
+		VALUES
+			(#{uid}, #{email}, #{password}, NOW(), #{createdBy})
+	</insert>
+	
+	<select id="selectManager" parameterType="string" resultType="managerVO">
+		SELECT uid, email, password, create_dt, created_by
+			FROM tbl_manager
+		WHERE email=#{email}
+	</select>
+
+	
+
+</mapper>
