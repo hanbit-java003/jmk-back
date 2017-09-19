@@ -22,6 +22,23 @@
 			FROM tbl_manager
 		WHERE email=#{email}
 	</select>
+	
+	<resultMap type="managerVO" id="managerDetail">
+		<result property="email" column="email"/>
+		<association property="detail" javaType="managerDetailVO">
+			<result property="name" column="name"/>
+			<result property="phone" column="phone"/>
+			<result property="info" column="info"/>
+			<result property="avatar" column="avatar"/>
+		</association>
+	</resultMap>
+	
+	<select id="selectManagerDetail" parameterType="String" resultMap="managerDetail">
+		SELECT email, name, phone, IFNULL (info, 'N') info ,avatar
+			FROM tbl_manager m LEFT JOIN tbl_manager_detail d
+ 			ON m.uid = d.uid
+			WHERE m.uid = #{uid}
+	</select>
 
 	
 

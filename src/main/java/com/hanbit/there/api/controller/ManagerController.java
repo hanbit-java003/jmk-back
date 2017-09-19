@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.WebUtils;
 
+import com.hanbit.there.api.annotation.SignInRequired;
 import com.hanbit.there.api.service.ManagerSerivce;
 import com.hanbit.there.api.vo.ManagerVO;
 
@@ -105,6 +106,14 @@ public class ManagerController {
 			result.put("status", "ok");
 		
 		return result;
+	}
+	
+	@SignInRequired
+	@RequestMapping("/detail")
+	public ManagerVO getManagerDetail(HttpSession session) {
+		String uid = (String) session.getAttribute("uid");
+		
+		return managerSerivce.getManagerDetail(uid);
 	}
 	
 }

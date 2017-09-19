@@ -67,5 +67,10 @@ public class ManagerSerivce {
 		return managerVO;
 	}
 	
+	public ManagerVO getManagerDetail(String uid) {
+		
+		return managerDAO.selectManagerDetail(uid);
+	}
+	
 	
 }

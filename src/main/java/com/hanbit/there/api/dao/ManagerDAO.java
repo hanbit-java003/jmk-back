@@ -27,5 +27,10 @@ public class ManagerDAO {
 		return sqlSession.selectOne("manager.selectManager",email);
 	}
 	
+	public ManagerVO selectManagerDetail(String uid) {
+		
+		return sqlSession.selectOne("manager.selectManagerDetail", uid);
+	}
+	
 	
 }

@@ -7,6 +7,7 @@ public class ManagerVO {
 	private String password;
 	private String createDt;
 	private String createdBy;
+	private ManagerDetailVO detail;
 	
 	
 	public String getUid() {
@@ -38,6 +39,12 @@ public class ManagerVO {
 	}
 	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
+	}
+	public ManagerDetailVO getDetail() {
+		return detail;
+	}
+	public void setDetail(ManagerDetailVO detail) {
+		this.detail = detail;
 	}
 	
 }
