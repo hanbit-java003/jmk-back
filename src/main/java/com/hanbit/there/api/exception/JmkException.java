@@ -1,16 +1,16 @@
 package com.hanbit.there.api.exception;
 
 
-public class HanbitException extends RuntimeException {
+public class JmkException extends RuntimeException {
 	
 	private int errorCode = 500;
 	
-	public HanbitException(String message) {
+	public JmkException(String message) {
 		// 여기서 super는 Runtime Exceptiont이다.
 		super(message);
 	}
 	
-	public HanbitException(int errorCode, String message) {
+	public JmkException(int errorCode, String message) {
 		this(message);
 
 		this.errorCode = errorCode;

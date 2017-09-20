@@ -13,9 +13,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.hanbit.there.api.HanbitConstants;
+import com.hanbit.there.api.JmkConstants;
 import com.hanbit.there.api.annotation.SignInRequired;
-import com.hanbit.there.api.exception.HanbitException;
+import com.hanbit.there.api.exception.JmkException;
 
 @Aspect
 @Component
@@ -36,8 +36,8 @@ public class SessionAspect {
 				signature.getMethod().getAnnotation(SignInRequired.class);
 		String[] values = signInRequired.value();
 
-		if (session.getAttribute(HanbitConstants.SIGNIN_KEY) == null) { // 로그인이 안되어 있는 경우. 상수로 만들어주는 것이 좋음.
-			throw new HanbitException(403, "로그인이 필요합니다.");
+		if (session.getAttribute(JmkConstants.SIGNIN_KEY) == null) { // 로그인이 안되어 있는 경우. 상수로 만들어주는 것이 좋음.
+			throw new JmkException(403, "로그인이 필요합니다.");
 		}
 
 		return pjp.proceed();

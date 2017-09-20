@@ -32,5 +32,20 @@ public class ManagerDAO {
 		return sqlSession.selectOne("manager.selectManagerDetail", uid);
 	}
 	
+	public int insertManagerDetail(ManagerVO managerVO) {
+		
+		return sqlSession.insert("manager.insertManagerDetail", managerVO);
+	}
+	
+	public String selectPassword(String uid) {
+		
+		return sqlSession.selectOne("manager.selectPassword", uid);
+	}
+	
+	public int updatePassword(ManagerVO managerVO) {
+		
+		return sqlSession.update("manager.updatePassword", managerVO);
+	}
+	
 	
 }

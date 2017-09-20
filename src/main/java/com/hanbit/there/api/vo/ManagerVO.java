@@ -4,6 +4,7 @@ public class ManagerVO {
 	
 	private String uid;
 	private String email;
+	private String currentPw;
 	private String password;
 	private String createDt;
 	private String createdBy;
@@ -45,6 +46,12 @@ public class ManagerVO {
 	}
 	public void setDetail(ManagerDetailVO detail) {
 		this.detail = detail;
+	}
+	public String getCurrentPw() {
+		return currentPw;
+	}
+	public void setCurrentPw(String currentPw) {
+		this.currentPw = currentPw;
 	}
 	
 }

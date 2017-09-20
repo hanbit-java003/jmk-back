@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.WebUtils;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hanbit.there.api.JmkConstants;
 import com.hanbit.there.api.annotation.SignInRequired;
 import com.hanbit.there.api.service.ManagerSerivce;
 import com.hanbit.there.api.vo.ManagerVO;
@@ -25,6 +28,8 @@ public class ManagerController {
 	
 	@Autowired
 	private ManagerSerivce managerSerivce;
+	
+	private static final ObjectMapper objectMapper = new ObjectMapper();
 	
 	@PostMapping("/signup")
 	public Map signUp(@RequestParam("email") String email,
@@ -61,9 +66,13 @@ public class ManagerController {
 		}
 		
 		// session 범위 ..
-		session.setAttribute("signedIn", true);
+		session.setAttribute(JmkConstants.SIGNIN_KEY, true);
 		session.setAttribute("uid", managerVO.getUid());
 		session.setAttribute("email", managerVO.getEmail());
+		
+		if (managerVO.getDetail() != null) {
+			session.setAttribute("avatar", managerVO.getDetail().getAvatar());
+		}
 
 		
 		Map result = new HashMap();
@@ -76,12 +85,13 @@ public class ManagerController {
 	public Map getManager(HttpSession session) {
 		Map manager = new HashMap();
 		
-		if(session.getAttribute("signedIn") == null) {
-			manager.put("signedIn", false);
+		if(session.getAttribute(JmkConstants.SIGNIN_KEY) == null) {
+			manager.put(JmkConstants.SIGNIN_KEY, false);
 		}
 		else {
-			manager.put("signedIn", true);
+			manager.put(JmkConstants.SIGNIN_KEY, true);
 			manager.put("email", session.getAttribute("email"));
+			manager.put("avatar", session.getAttribute("avatar"));
 		}
 		
 		
@@ -114,6 +124,21 @@ public class ManagerController {
 		String uid = (String) session.getAttribute("uid");
 		
 		return managerSerivce.getManagerDetail(uid);
+	}
+	
+	@SignInRequired
+	@PostMapping("/save")
+	public Map saveManagerDetail(@RequestParam("manager")String json,
+			@RequestParam(value = "avatar", required= false) MultipartFile image,
+			HttpSession session) throws Exception {
+		ManagerVO managerVO = objectMapper.readValue(json, ManagerVO.class);
+		managerVO.setUid((String) session.getAttribute("uid"));
+		
+		managerSerivce.saveManagerDetail(managerVO, image);
+		
+		Map result = new HashMap();
+		result.put("status", "ok");
+		return result;
 	}
 	
 }

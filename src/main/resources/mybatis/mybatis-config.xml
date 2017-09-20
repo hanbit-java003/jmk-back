@@ -16,6 +16,9 @@
 		<typeAlias alias="referenceRoomVO" type="com.hanbit.there.api.vo.ReferenceRoomVO" />
 		<typeAlias alias="exhibtionVO" type="com.hanbit.there.api.vo.ExhibtionVO" />
 		
+		<typeAlias alias="fileVO" type="com.hanbit.there.api.vo.FileVO" />
+		
+		
 		<typeAlias alias="managerVO" type="com.hanbit.there.api.vo.ManagerVO" />
 		<typeAlias alias="managerDetailVO" type="com.hanbit.there.api.vo.ManagerDetailVO" />
 	</typeAliases>

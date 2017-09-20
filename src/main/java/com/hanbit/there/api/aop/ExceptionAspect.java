@@ -20,7 +20,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hanbit.there.api.exception.ExceptionVO;
-import com.hanbit.there.api.exception.HanbitException;
+import com.hanbit.there.api.exception.JmkException;
 
 @Aspect
 @Component
@@ -67,8 +67,8 @@ public class ExceptionAspect {
 			ExceptionVO exceptionVO = null;
 			int statusCode = 500;
 			
-			if (t instanceof HanbitException) {
-				HanbitException e = (HanbitException) t;
+			if (t instanceof JmkException) {
+				JmkException e = (JmkException) t;
 				exceptionVO = new ExceptionVO(e.getErrorCode(), e.getMessage());
 				statusCode = e.getErrorCode();
 			}
